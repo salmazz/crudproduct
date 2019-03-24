@@ -1,0 +1,72 @@
+<% include partials/header.ejs %>
+
+<div class="container">
+  <%if(message!=""){%>
+
+  <h2 class="lead text-center text-danger">
+    <%= message %>
+  </h2>
+  <%} %>
+
+  <div class="float-right col-md-6">
+     <img src="../assests/img/<%=product.productID%>.<%= product.image.split('.')[1]%>" class="rounded center"
+       style="width:300px;height:300px" alt="<%= product.image %>">
+  </div>
+  <form action="" style="margin-top:50px;" class="col-md-10" method="POST" enctype="multipart/form-data">
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="Title">Title</label>
+
+        <input type="text" id="title" name="title" class="form-control" placeholder="title"  value="<%= product.title %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="image">Product Image</label>
+        <input name="image" type="file" id="image"  value="<%= product.image %>" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="quantity">Quantity</label>
+
+        <input name="quantity" type="number" id="Quantity" class="form-control" placeholder="Quantity" value="<%= product.Quantity %>">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="Price">Price</label>
+
+        <input name="price" type="number" id="price" class="form-control" placeholder="Price"
+          value="<%= product.price %>">
+      </div>
+    </div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+<label for="category">Category</label>
+    <select name="category" id="category" class="form-control" >
+      <option value="<%= product.Category %>" selected><%= product.Category %></option>
+      <option  value="Samsung">Samsung</option>
+      <option value="Iphone">Iphone</option>
+      <option value="Sony">Sony</option>
+      <option value="OPPO">OPPO</option>
+      <option value="Hauawi">Hauawi</option>
+    </select>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group col-md-6">
+    <label for="desc">Description</label>
+
+    <textarea name="desc" id="desc" cols="10" rows="3" class="form-control" placeholder="Description"
+      ><%= product.description %></textarea>
+  </div>
+  <div class="form-group col-md-6">
+<button type="submit" class="btn btn-primary float-right">Save Changes</button>
+
+  </div>
+</div>
+  </form>
+</div>
+
+
+
+<% include partials/footer.ejs %>
